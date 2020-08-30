@@ -101,6 +101,10 @@ class ConnectPage(GridLayout):
 		parity 		= self.parity.text
 		data_bits 	= self.data_bits.text
 
+
+		if system() == "Linux" :
+			port = f"/dev/{port}"
+			
 		try:
 			ser = serial.Serial(port, int(baudrate), int(data_bits), parity = 'N')
 			ser.close()
